@@ -10,6 +10,18 @@ RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 YELLOW = (255, 255, 0)
 
+ONE_Img = pygame.image.load("img/1.bmp")
+TWO_Img = pygame.image.load("img/2.bmp")
+THREE_Img = pygame.image.load("img/3.bmp")
+FOUR_Img = pygame.image.load("img/4.bmp")
+FIVE_Img = pygame.image.load("img/5.bmp")
+SIX_Img = pygame.image.load("img/6.bmp")
+SEVEN_Img = pygame.image.load("img/7.bmp")
+EIGHT_Img = pygame.image.load("img/8.bmp")
+FLAG_Img = pygame.image.load("img/flag.bmp")
+NOTSURE_Img = pygame.image.load("img/notsure.bmp")
+IMGS = (ONE_Img, TWO_Img, THREE_Img, FOUR_Img, FIVE_Img, SIX_Img, SEVEN_Img, EIGHT_Img)
+
 
 def bomber(length, width, bomb, m, n):
     """
@@ -107,18 +119,6 @@ def main():
     displaysurf = pygame.display.set_mode((length * 15 + 40, width * 15 + 60 + 20), 0, 32)
     pygame.display.set_caption("Minesweeper")
 
-    one_img = pygame.image.load("img/1.bmp")
-    two_img = pygame.image.load("img/2.bmp")
-    three_img = pygame.image.load("img/3.bmp")
-    four_img = pygame.image.load("img/4.bmp")
-    five_img = pygame.image.load("img/5.bmp")
-    six_img = pygame.image.load("img/6.bmp")
-    seven_img = pygame.image.load("img/7.bmp")
-    eight_img = pygame.image.load("img/8.bmp")
-    flag_img = pygame.image.load("img/flag.bmp")
-    notsure_img = pygame.image.load("img/notsure.bmp")
-    imgs = (one_img, two_img, three_img, four_img, five_img, six_img, seven_img, eight_img)
-
     font1 = pygame.font.SysFont("simsunnsimsun", 15)
     time1 = font1.render("Time: 0", True, BLACK, GREY)
     rect1 = time1.get_rect()
@@ -154,11 +154,11 @@ def main():
             if cal == 0:
                 pygame.draw.rect(displaysurf, WHITE, (21 + i * 15, 41 + j * 15, 14, 14), 0)
             else:
-                displaysurf.blit(imgs[cal - 1], (22 + i * 15, 42 + j * 15))
+                displaysurf.blit(IMGS[cal - 1], (22 + i * 15, 42 + j * 15))
         for i, j in flags:
-            displaysurf.blit(flag_img, (22 + i * 15, 42 + j * 15))
+            displaysurf.blit(FLAG_Img, (22 + i * 15, 42 + j * 15))
         for i, j in notsure:
-            displaysurf.blit(notsure_img, (22 + i * 15, 42 + j * 15))
+            displaysurf.blit(NOTSURE_Img, (22 + i * 15, 42 + j * 15))
 
         if bombed:
             for i, j in bombs:
